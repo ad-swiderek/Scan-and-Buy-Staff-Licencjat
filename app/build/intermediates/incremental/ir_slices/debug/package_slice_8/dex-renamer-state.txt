@@ -1,4 +1,4 @@
-#Thu Apr 04 12:52:55 CEST 2019
+#Thu Apr 04 13:59:40 CEST 2019
 base.0=D\:\\Git\\Scan-and-Buy-Staff-Licencjat\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
 path.0=classes.dex
 renamed.0=classes.dex
