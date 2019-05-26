@@ -21,13 +21,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        scan();
 
-        Button button = findViewById(R.id.scanBtn);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button scanBtn = findViewById(R.id.scanBtn);
+        scanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 scan();
+            }
+        });
+
+        Button helpBtn = findViewById(R.id.helpBtn);
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToastMessage("Do działania aplikacji wymagany jest dostęp do internetu oraz moduł aparatu");
             }
         });
     }
@@ -53,5 +60,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void showToastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
 
 }
