@@ -51,7 +51,6 @@ public class AddProductActivity extends AppCompatActivity {
     private StorageReference storageReference = storage.getReferenceFromUrl("gs://scanandbuy-53a52.appspot.com");
     private StorageReference productsImagesJpg;
     private StorageReference productsImages;
-    //private StorageReference storageReference;
     private String message;
     private ProductClass productClass = new ProductClass();
     private static final String TAG = "AddProductActivity";
@@ -169,9 +168,14 @@ public class AddProductActivity extends AppCompatActivity {
                 popUpWindow.setButton(popUpWindow.BUTTON_POSITIVE, "Zapisz", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        int sum = Integer.parseInt(binding.quantityTextView.getText().toString()) +
-                                Integer.parseInt(editText.getText().toString());
-                        binding.quantityTextView.setText(String.valueOf(sum));
+                        if(binding.quantityTextView.getText()!="") {
+                            int sum = Integer.parseInt(binding.quantityTextView.getText().toString()) +
+                                    Integer.parseInt(editText.getText().toString());
+                            binding.quantityTextView.setText(String.valueOf(sum));
+                        }
+                        else {
+                            binding.quantityTextView.setText(editText.getText());
+                        }
                     }
                 });
                 popUpWindow.show();
@@ -200,17 +204,22 @@ public class AddProductActivity extends AppCompatActivity {
     }
 
     private void saveToFirebase() {
-        ProductClass productObject = new ProductClass(binding.barcodeTextView.getText().toString(), binding.nameTextView.getText().toString(),
-                binding.priceTextView.getText().toString(), binding.quantityTextView.getText().toString());
-        databaseProducts.child(binding.barcodeTextView.getText().toString()).setValue(productObject, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                if (databaseError == null)
-                    showToastMessage("Dodano pomyslnie.");
-                else
-                    showToastMessage("Error " + databaseError);
-            }
-        });
+        if (binding.nameTextView.getText() != "" && binding.priceTextView.getText() != "" && binding.quantityTextView.getText() != "") {
+            ProductClass productObject = new ProductClass(binding.barcodeTextView.getText().toString(), binding.nameTextView.getText().toString(),
+                    binding.priceTextView.getText().toString(), binding.quantityTextView.getText().toString());
+            databaseProducts.child(binding.barcodeTextView.getText().toString()).setValue(productObject, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                    if (databaseError == null)
+                        showToastMessage("Dodano pomyslnie.");
+                    else
+                        showToastMessage("Error " + databaseError);
+                }
+            });
+        }
+        else{
+            showToastMessage("Wypełnij wszystkie pola!");
+        }
     }
 
     private void saveToStorage() {
@@ -227,11 +236,6 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 showToastMessage("Podczas dodawania obrazu wystąpił błąd");
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                showToastMessage("Dodano pomyślnie");
             }
         });
     }

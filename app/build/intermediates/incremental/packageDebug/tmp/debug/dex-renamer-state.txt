@@ -1,4 +1,4 @@
-#Sat Aug 31 23:16:09 CEST 2019
+#Sun Sep 01 00:26:07 CEST 2019
 base.0=C\:\\Projekty\\Scan-and-Buy-Staff-Licencjat\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
