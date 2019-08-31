@@ -736,6 +736,7 @@ id actions
 id activity_chooser_view_content
 id add
 id addNextBtn
+id addPhotoBtn
 id addQuantityBtn
 id adjust_height
 id adjust_width
@@ -796,6 +797,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageView
 id info
 id invisible
 id italic
@@ -867,10 +869,12 @@ id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id takePhotoBtn
 id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textView
 id textView2
 id textView3
 id textView4
@@ -961,6 +965,7 @@ layout zxing_capture
 mipmap barcode_icon_staff
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap ic_take_product_photo
 raw zxing_beep
 string abc_action_bar_home_description
 string abc_action_bar_up_description

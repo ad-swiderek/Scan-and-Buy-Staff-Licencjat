@@ -3,6 +3,10 @@ package com.example.scanandbuy_staff;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -24,6 +28,10 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.core.Tag;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class AddProductActivity extends AppCompatActivity {
 
     private ActivityAddProductBinding binding; //Zeby dodac binding trzeba wziac caly XML w <layout></layout>
@@ -32,6 +40,10 @@ public class AddProductActivity extends AppCompatActivity {
     private String message;
     private ProductClass productClass = new ProductClass();
     private static final String TAG = "AddProductActivity";
+    private static final int RESULT_LOAD_IMAGE = 1;
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static boolean isCameraUsed = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,6 +154,26 @@ public class AddProductActivity extends AppCompatActivity {
                 popUpWindow.show();
             }
         });
+
+        binding.addPhotoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addPictureIntent = new Intent(Intent.ACTION_PICK);
+                addPictureIntent.setType("image/*");
+                startActivityForResult(addPictureIntent, RESULT_LOAD_IMAGE);
+            }
+        });
+
+        binding.takePhotoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isCameraUsed = true;
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
+            }
+        });
     }
 
     private void saveToFirebase() {
@@ -187,5 +219,33 @@ public class AddProductActivity extends AppCompatActivity {
 
     private void showToastMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (isCameraUsed) {
+            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                Bundle extras = data.getExtras();
+                Bitmap image = (Bitmap) extras.get("data");
+                binding.imageView.setImageBitmap(image);
+            } else {
+                showToastMessage("Nie zrobiono zdjęcia");
+            }
+            isCameraUsed = false;
+        } else {
+            if (resultCode == RESULT_OK) {
+                try {
+                    Uri imageUri = data.getData();
+                    InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                    binding.imageView.setImageBitmap(selectedImage);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    showToastMessage("Wystąpił błąd");
+                }
+            } else {
+                showToastMessage("Nie wybrano zdjecia");
+            }
+        }
     }
 }
