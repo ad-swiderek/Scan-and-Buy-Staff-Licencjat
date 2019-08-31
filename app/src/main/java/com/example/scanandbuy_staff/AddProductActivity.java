@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -66,15 +67,16 @@ public class AddProductActivity extends AppCompatActivity {
 
         Intent intent = getIntent(); //przyjmujemy intent z naszego main activity (czyli nasz kod kreskowy)
         message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE); //Przypisujemy kod kreskowy z intentu do Stringa
-        readFromFirebase();
 
         TextView textView = findViewById(R.id.barcodeTextView); //wyswietlamy w naszym textView wczesniej przypisany kod kreskowy
         textView.setText(message);
         storageReference = FirebaseStorage.getInstance().getReference();
         productsImagesJpg = storageReference.child(message + ".jpg");
-        productsImages = storageReference.child("productsImages/" + message + "/jpg");
+        productsImages = storageReference.child("productsImages/" + message + ".jpg");
         productsImages.getName().equals(productsImagesJpg.getName());
         productsImages.getPath().equals(productsImagesJpg.getPath());
+
+        readFromFirebase();
 
         binding.saveBtn.setOnClickListener(new View.OnClickListener() { //tworzymy wydarzenie ktore po kliknieciu w button wywola metode zapisujaca dane do bazy
             @Override
@@ -258,7 +260,12 @@ public class AddProductActivity extends AppCompatActivity {
                 Log.w(TAG, "Error", databaseError.toException());
             }
         });
-
+        storageReference.child(message + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(AddProductActivity.this).load(uri).into(binding.imageView);
+            }
+        });
     }
 
     private void showToastMessage(String message) {

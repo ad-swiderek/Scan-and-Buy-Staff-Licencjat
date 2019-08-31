@@ -4,7 +4,7 @@
             "outputFile": "C:\\Projekty\\Scan-and-Buy-Staff-Licencjat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Adrian\\.gradle\\caches\\transforms-2\\files-2.1\\321a7454d13db6a7355458e4e9527dee\\support-media-compat-26.1.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Adrian\\.gradle\\caches\\transforms-2\\files-2.1\\6b941e9ca2fef3dce92fb9f8ca130b86\\support-media-compat-28.0.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

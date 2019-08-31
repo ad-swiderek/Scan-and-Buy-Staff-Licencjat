@@ -573,6 +573,10 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen subtitle_corner_radius
+dimen subtitle_outline_width
+dimen subtitle_shadow_offset
+dimen subtitle_shadow_radius
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -786,6 +790,7 @@ id fill_vertical
 id fitCenter
 id fitXY
 id forever
+id glide_custom_view_target_tag
 id gone
 id group_divider
 id groups
@@ -963,6 +968,7 @@ layout support_simple_spinner_dropdown_item
 layout zxing_barcode_scanner
 layout zxing_capture
 mipmap barcode_icon_staff
+mipmap ic_add_photo
 mipmap ic_launcher
 mipmap ic_launcher_round
 mipmap ic_take_product_photo
