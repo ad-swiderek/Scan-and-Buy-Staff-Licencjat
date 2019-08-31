@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -16,9 +17,12 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +31,12 @@ import com.example.scanandbuy_staff.databinding.ActivityAddProductBinding;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.core.Tag;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +45,12 @@ public class AddProductActivity extends AppCompatActivity {
 
     private ActivityAddProductBinding binding; //Zeby dodac binding trzeba wziac caly XML w <layout></layout>
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
     private DatabaseReference databaseProducts = database.getReference("products");
+    private StorageReference storageReference = storage.getReferenceFromUrl("gs://scanandbuy-53a52.appspot.com");
+    private StorageReference productsImagesJpg;
+    private StorageReference productsImages;
+    //private StorageReference storageReference;
     private String message;
     private ProductClass productClass = new ProductClass();
     private static final String TAG = "AddProductActivity";
@@ -56,11 +70,18 @@ public class AddProductActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.barcodeTextView); //wyswietlamy w naszym textView wczesniej przypisany kod kreskowy
         textView.setText(message);
+        storageReference = FirebaseStorage.getInstance().getReference();
+        productsImagesJpg = storageReference.child(message + ".jpg");
+        productsImages = storageReference.child("productsImages/" + message + "/jpg");
+        productsImages.getName().equals(productsImagesJpg.getName());
+        productsImages.getPath().equals(productsImagesJpg.getPath());
 
         binding.saveBtn.setOnClickListener(new View.OnClickListener() { //tworzymy wydarzenie ktore po kliknieciu w button wywola metode zapisujaca dane do bazy
             @Override
             public void onClick(View v) {
                 saveToFirebase();
+                if (binding.imageView.getDrawable() != null)
+                    saveToStorage();
             }
         });
 
@@ -186,6 +207,29 @@ public class AddProductActivity extends AppCompatActivity {
                     showToastMessage("Dodano pomyslnie.");
                 else
                     showToastMessage("Error " + databaseError);
+            }
+        });
+    }
+
+    private void saveToStorage() {
+        ImageView imageToSend = binding.imageView;
+        imageToSend.setDrawingCacheEnabled(true);
+        imageToSend.buildDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) imageToSend.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTask = productsImagesJpg.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                showToastMessage("Podczas dodawania obrazu wystąpił błąd");
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                showToastMessage("Dodano pomyślnie");
             }
         });
     }
