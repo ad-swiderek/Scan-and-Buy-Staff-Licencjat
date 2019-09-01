@@ -13,6 +13,7 @@ MERGED from [com.firebaseui:firebase-ui-storage:4.3.1] C:\Users\Adrian\.gradle\c
 MERGED from [com.google.firebase:firebase-storage:16.0.5] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\ae694c21c627f8c275698ff1d064817c\firebase-storage-16.0.5\AndroidManifest.xml:15:1-26:12
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\c4a72ff91bdb468fea0eda14a53226a0\firebase-auth-16.0.5\AndroidManifest.xml:17:1-42:12
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:17:1-56:12
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\928fa1f74106ebc7aa517c41497b7440\circleimageview-3.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\3a52038f744d2891610616f8cb99b3bc\glide-4.8.0\AndroidManifest.xml:2:1-12:12
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\20d762fba4d9ba4da6f4e0bed47fff88\play-services-flags-16.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\463dfddff8d9eaee5002e3fec0ff95bd\firebase-auth-interop-16.0.1\AndroidManifest.xml:2:1-10:12
@@ -92,6 +93,8 @@ MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Adrian\.gradle\c
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\c4a72ff91bdb468fea0eda14a53226a0\firebase-auth-16.0.5\AndroidManifest.xml:23:5-40:19
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:46:5-54:19
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:46:5-54:19
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\928fa1f74106ebc7aa517c41497b7440\circleimageview-3.0.0\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\928fa1f74106ebc7aa517c41497b7440\circleimageview-3.0.0\AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\3a52038f744d2891610616f8cb99b3bc\glide-4.8.0\AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\3a52038f744d2891610616f8cb99b3bc\glide-4.8.0\AndroidManifest.xml:10:5-20
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\463dfddff8d9eaee5002e3fec0ff95bd\firebase-auth-interop-16.0.1\AndroidManifest.xml:7:5-8:19
@@ -187,6 +190,8 @@ MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Adrian\.gradle\c
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\c4a72ff91bdb468fea0eda14a53226a0\firebase-auth-16.0.5\AndroidManifest.xml:21:5-44
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:20:5-44
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:20:5-44
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\928fa1f74106ebc7aa517c41497b7440\circleimageview-3.0.0\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\928fa1f74106ebc7aa517c41497b7440\circleimageview-3.0.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\3a52038f744d2891610616f8cb99b3bc\glide-4.8.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\3a52038f744d2891610616f8cb99b3bc\glide-4.8.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\20d762fba4d9ba4da6f4e0bed47fff88\play-services-flags-16.0.1\AndroidManifest.xml:20:5-44
