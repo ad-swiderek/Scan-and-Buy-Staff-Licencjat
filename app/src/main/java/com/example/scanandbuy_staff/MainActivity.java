@@ -13,7 +13,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.adrian.scanandbuy"; //wiadomosc (kod kreskowy) do pozniejszego przeslania w intencie
+    public static final String EXTRA_MESSAGE = "com.example.adrian.scanandbuy";
     private final Activity activity = this;
 
     @Override
@@ -34,25 +34,26 @@ public class MainActivity extends AppCompatActivity {
         helpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToastMessage("Do działania aplikacji wymagany jest dostęp do internetu oraz moduł aparatu");
+                showToastMessage("Do działania aplikacji wymagany jest dostęp do internetu " +
+                        "oraz moduł aparatu");
             }
         });
     }
 
-    protected void scan() { //uruchamiam skaner kodow kreskowych
-        IntentIntegrator integrator = new IntentIntegrator(activity); //tworze specjalny intent z biblioteki zxing ktory pozwala przejsc do activity ze skanerem
-        integrator.setBeepEnabled(false); //wylaczam dzwiek skanera
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES); //skaner jest w trybie skanowania wszystkich mozliwych kodow dostepnych w bibliotece
-        integrator.initiateScan(); //inicjuje skanowanie
+    protected void scan() {
+        IntentIntegrator integrator = new IntentIntegrator(activity);
+        integrator.setBeepEnabled(false);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrator.initiateScan();
         integrator.setOrientationLocked(true);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data); //zapisuje rezultat naszego skanowania
-        if (result != null) { //jezeli udalo sie zeskanowac i wczesniej wcisnieto przycisk "pracownik" to przechodze do activity w ktorym dodaje produkty i przekazuje w intencie moj numer z kodu kreskowego
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
             Intent intent = new Intent(this, AddProductActivity.class);
-            String message = result.getContents().toString();
+            String message = result.getContents();
             intent.putExtra(EXTRA_MESSAGE, message);
             startActivity(intent);
         } else {

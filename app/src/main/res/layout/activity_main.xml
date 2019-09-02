@@ -8,16 +8,17 @@
 
     <Button
         android:id="@+id/scanBtn"
-        android:layout_width="109dp"
-        android:layout_height="57dp"
+        style="@android:style/Widget.Material.Light.Button.Borderless.Small"
+        android:layout_width="177dp"
+        android:layout_height="95dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Skanuj!"
         android:drawableLeft="@drawable/ic_barcode"
+        android:text="SKANUJ!"
+
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,12 +26,12 @@
 
     <Button
         android:id="@+id/helpBtn"
-        android:layout_width="53dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
         android:background="@drawable/ic_help"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -11,7 +11,6 @@ public class ProductClass {
     }
 
     public ProductClass(String barcode, String productName, String price, String quantity) {
-        //this.id=id;
         this.barcode = barcode;
         this.productName = productName;
         this.price = price;

@@ -69,22 +69,8 @@ INJECTED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManif
 		INJECTED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:2:11-69
-uses-permission#android.permission.INTERNET
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:6:5-67
-MERGED from [com.google.firebase:firebase-database:16.1.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\2e43337a2c522a333b1e5e940c4b318c\firebase-database-16.1.0\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-database:16.1.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\2e43337a2c522a333b1e5e940c4b318c\firebase-database-16.1.0\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-storage:16.0.5] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\ae694c21c627f8c275698ff1d064817c\firebase-storage-16.0.5\AndroidManifest.xml:24:5-67
-MERGED from [com.google.firebase:firebase-storage:16.0.5] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\ae694c21c627f8c275698ff1d064817c\firebase-storage-16.0.5\AndroidManifest.xml:24:5-67
-	android:name
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:6:22-64
-uses-permission#android.permission.CAMERA
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:7:5-65
-MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:22:5-65
-MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:22:5-65
-	android:name
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:7:22-62
 application
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:9:5-35:19
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:6:5-32:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\6ad834723ae944fd63d255f44be7cd27\constraint-layout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\6ad834723ae944fd63d255f44be7cd27\constraint-layout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-database:16.1.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\2e43337a2c522a333b1e5e940c4b318c\firebase-database-16.1.0\AndroidManifest.xml:28:5-34:19
@@ -116,58 +102,72 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Adrian\.gradle
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\93dec30fcd101acdd8f0755b7932faf8\support-compat-28.0.0\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:9:9-41
 	android:roundIcon
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:10:9-54
 	android:icon
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:11:9-50
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:8:9-50
 	android:allowBackup
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:15:9-40
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:12:9-40
 activity#com.example.scanandbuy_staff.AddProductActivity
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:16:9-18:61
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:13:9-15:61
+	android:screenOrientation
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:15:13-49
+	android:name
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:14:13-47
+activity#com.example.scanandbuy_staff.MainActivity
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:16:9-24:20
 	android:screenOrientation
 		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:18:13-49
 	android:name
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:17:13-47
-activity#com.example.scanandbuy_staff.MainActivity
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:19:9-27:20
-	android:screenOrientation
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:21:13-49
-	android:name
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:20:13-41
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:17:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:22:13-26:29
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:19:13-23:29
 action#android.intent.action.MAIN
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:23:17-69
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:23:25-66
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:25:17-77
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:25:27-74
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:22:27-74
 activity#com.journeyapps.barcodescanner.CaptureActivity
-ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:28:9-34:57
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:25:9-31:57
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
 MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
 	android:clearTaskOnLaunch
 		ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:49:13-45
 	android:screenOrientation
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:30:13-55
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:27:13-55
 		REJECTED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:50:13-56
 	android:stateNotNeeded
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:31:13-42
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:28:13-42
 	android:windowSoftInputMode
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:33:13-60
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:30:13-60
 	android:theme
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:32:13-54
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:29:13-54
 	tools:replace
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:34:13-54
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:31:13-54
 	android:name
-		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:29:13-74
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:26:13-74
+uses-permission#android.permission.CAMERA
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:33:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:22:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\d79f4296f3a801cde2db2a8da218b439\zxing-android-embedded-3.6.0\AndroidManifest.xml:22:5-65
+	android:name
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:33:22-62
+uses-permission#android.permission.INTERNET
+ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:35:5-67
+MERGED from [com.google.firebase:firebase-database:16.1.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\2e43337a2c522a333b1e5e940c4b318c\firebase-database-16.1.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:16.1.0] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\2e43337a2c522a333b1e5e940c4b318c\firebase-database-16.1.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-storage:16.0.5] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\ae694c21c627f8c275698ff1d064817c\firebase-storage-16.0.5\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-storage:16.0.5] C:\Users\Adrian\.gradle\caches\transforms-2\files-2.1\ae694c21c627f8c275698ff1d064817c\firebase-storage-16.0.5\AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml:35:22-64
 uses-sdk
 INJECTED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Projekty\Scan-and-Buy-Staff-Licencjat\app\src\main\AndroidManifest.xml

@@ -45,7 +45,7 @@ import java.io.InputStream;
 
 public class AddProductActivity extends AppCompatActivity {
 
-    private ActivityAddProductBinding binding; //Zeby dodac binding trzeba wziac caly XML w <layout></layout>
+    private ActivityAddProductBinding binding;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private DatabaseReference databaseProducts = database.getReference("products");
@@ -59,17 +59,15 @@ public class AddProductActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static boolean isCameraUsed = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_product); //dodajemy binding aby moc odnosic sie do komponentow w naszym pliku xml
-
-        Intent intent = getIntent(); //przyjmujemy intent z naszego main activity (czyli nasz kod kreskowy)
-        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE); //Przypisujemy kod kreskowy z intentu do Stringa
-
-        TextView textView = findViewById(R.id.barcodeTextView); //wyswietlamy w naszym textView wczesniej przypisany kod kreskowy
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_product);
+        Intent intent = getIntent();
+        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        TextView textView = findViewById(R.id.barcodeTextView);
         textView.setText(message);
+
         storageReference = FirebaseStorage.getInstance().getReference();
         productsImagesJpg = storageReference.child(message + ".jpg");
         productsImages = storageReference.child("productsImages/" + message + ".jpg");
@@ -91,7 +89,8 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intentMain = new Intent(AddProductActivity.this, MainActivity.class);
+                Intent intentMain = new Intent(AddProductActivity.this,
+                        MainActivity.class);
                 startActivity(intentMain);
             }
         });
@@ -99,25 +98,28 @@ public class AddProductActivity extends AppCompatActivity {
         binding.editNameBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AlertDialog popUpWindow = new AlertDialog.Builder(AddProductActivity.this).create();
+                final AlertDialog popUpWindow = new AlertDialog.Builder
+                        (AddProductActivity.this).create();
                 final EditText editText = new EditText(AddProductActivity.this);
                 popUpWindow.setTitle("Edytuj nazwę");
                 popUpWindow.setMessage("Wprowadz nową nazwę: ");
                 popUpWindow.setView(editText);
 
-                popUpWindow.setButton(popUpWindow.BUTTON_NEGATIVE, "Anuluj", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        popUpWindow.dismiss();
-                    }
-                });
+                popUpWindow.setButton(popUpWindow.BUTTON_NEGATIVE, "Anuluj",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                popUpWindow.dismiss();
+                            }
+                        });
 
-                popUpWindow.setButton(popUpWindow.BUTTON_POSITIVE, "Zapisz", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        binding.nameTextView.setText(editText.getText());
-                    }
-                });
+                popUpWindow.setButton(popUpWindow.BUTTON_POSITIVE, "Zapisz",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                binding.nameTextView.setText(editText.getText());
+                            }
+                        });
                 popUpWindow.show();
             }
         });
@@ -125,26 +127,30 @@ public class AddProductActivity extends AppCompatActivity {
         binding.editPriceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AlertDialog popUpWindow = new AlertDialog.Builder(AddProductActivity.this).create();
+                final AlertDialog popUpWindow = new AlertDialog.Builder
+                        (AddProductActivity.this).create();
                 final EditText editText = new EditText(AddProductActivity.this);
-                editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                editText.setInputType(InputType.TYPE_CLASS_NUMBER |
+                        InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 popUpWindow.setTitle("Edytuj cenę");
                 popUpWindow.setMessage("Wprowadz nową cenę: ");
                 popUpWindow.setView(editText);
 
-                popUpWindow.setButton(popUpWindow.BUTTON_NEGATIVE, "Anuluj", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        popUpWindow.dismiss();
-                    }
-                });
+                popUpWindow.setButton(popUpWindow.BUTTON_NEGATIVE, "Anuluj",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                popUpWindow.dismiss();
+                            }
+                        });
 
-                popUpWindow.setButton(popUpWindow.BUTTON_POSITIVE, "Zapisz", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        binding.priceTextView.setText(editText.getText());
-                    }
-                });
+                popUpWindow.setButton(popUpWindow.BUTTON_POSITIVE, "Zapisz",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                binding.priceTextView.setText(editText.getText());
+                            }
+                        });
                 popUpWindow.show();
             }
         });
@@ -152,33 +158,36 @@ public class AddProductActivity extends AppCompatActivity {
         binding.addQuantityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AlertDialog popUpWindow = new AlertDialog.Builder(AddProductActivity.this).create();
+                final AlertDialog popUpWindow = new AlertDialog.Builder
+                        (AddProductActivity.this).create();
                 final EditText editText = new EditText(AddProductActivity.this);
-                editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
+                editText.setInputType(InputType.TYPE_CLASS_NUMBER |
+                        InputType.TYPE_NUMBER_FLAG_SIGNED);
                 popUpWindow.setTitle("Dodaj");
                 popUpWindow.setMessage("Ile sztuk dodać?");
                 popUpWindow.setView(editText);
 
-                popUpWindow.setButton(popUpWindow.BUTTON_NEGATIVE, "Anuluj", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        popUpWindow.dismiss();
-                    }
-                });
+                popUpWindow.setButton(popUpWindow.BUTTON_NEGATIVE, "Anuluj",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                popUpWindow.dismiss();
+                            }
+                        });
 
-                popUpWindow.setButton(popUpWindow.BUTTON_POSITIVE, "Zapisz", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if(binding.quantityTextView.getText()!="") {
-                            int sum = Integer.parseInt(binding.quantityTextView.getText().toString()) +
-                                    Integer.parseInt(editText.getText().toString());
-                            binding.quantityTextView.setText(String.valueOf(sum));
-                        }
-                        else {
-                            binding.quantityTextView.setText(editText.getText());
-                        }
-                    }
-                });
+                popUpWindow.setButton(popUpWindow.BUTTON_POSITIVE, "Zapisz",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (binding.quantityTextView.getText() != "") {
+                                    int sum = Integer.parseInt(binding.quantityTextView.getText()
+                                            .toString()) + Integer.parseInt(editText.getText().toString());
+                                    binding.quantityTextView.setText(String.valueOf(sum));
+                                } else {
+                                    binding.quantityTextView.setText(editText.getText());
+                                }
+                            }
+                        });
                 popUpWindow.show();
             }
         });
@@ -205,20 +214,23 @@ public class AddProductActivity extends AppCompatActivity {
     }
 
     private void saveToFirebase() {
-        if (binding.nameTextView.getText() != "" && binding.priceTextView.getText() != "" && binding.quantityTextView.getText() != "") {
-            ProductClass productObject = new ProductClass(binding.barcodeTextView.getText().toString(), binding.nameTextView.getText().toString(),
-                    binding.priceTextView.getText().toString(), binding.quantityTextView.getText().toString());
-            databaseProducts.child(binding.barcodeTextView.getText().toString()).setValue(productObject, new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                    if (databaseError == null)
-                        showToastMessage("Dodano pomyslnie.");
-                    else
-                        showToastMessage("Error " + databaseError);
-                }
-            });
-        }
-        else{
+        if (binding.nameTextView.getText() != "" && binding.priceTextView.getText() != ""
+                && binding.quantityTextView.getText() != "") {
+            ProductClass productObject = new ProductClass(binding.barcodeTextView.getText()
+                    .toString(), binding.nameTextView.getText().toString(),
+                    binding.priceTextView.getText().toString(),
+                    binding.quantityTextView.getText().toString());
+            databaseProducts.child(binding.barcodeTextView.getText().toString())
+                    .setValue(productObject, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            if (databaseError == null)
+                                showToastMessage("Dodano pomyslnie.");
+                            else
+                                showToastMessage("Error " + databaseError);
+                        }
+                    });
+        } else {
             showToastMessage("Wypełnij wszystkie pola!");
         }
     }
