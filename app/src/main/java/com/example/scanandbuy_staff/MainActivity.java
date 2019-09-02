@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToastMessage("Do działania aplikacji wymagany jest dostęp do internetu " +
-                        "oraz moduł aparatu");
+                        "oraz moduł aparatu. Aplikacja została przystosowana do wyświetlania na " +
+                        "ekranach o przekątnej powyzej 4,5\"");
             }
         });
     }
