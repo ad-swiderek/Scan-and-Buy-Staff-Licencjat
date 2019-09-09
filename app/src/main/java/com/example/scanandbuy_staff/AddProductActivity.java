@@ -64,30 +64,30 @@ public class AddProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_product);
         Intent intent = getIntent();
-        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE); //odebranie wiadomości z zeskanowanym kodem kreskowy,
         TextView textView = findViewById(R.id.barcodeTextView);
-        textView.setText(message);
+        textView.setText(message); //wyświetlenie kodu w textView
 
-        storageReference = FirebaseStorage.getInstance().getReference();
+        storageReference = FirebaseStorage.getInstance().getReference(); //utworzenie referencji do "storage" w którym przechowywane będą zdjęcia
         productsImagesJpg = storageReference.child(message + ".jpg");
         productsImages = storageReference.child("productsImages/" + message + ".jpg");
         productsImages.getName().equals(productsImagesJpg.getName());
         productsImages.getPath().equals(productsImagesJpg.getPath());
 
-        readFromFirebase();
+        readFromFirebase(); //odczyt danych z bazy na wypadek gdyby produkt już się w niej znajdował
 
         binding.saveBtn.setOnClickListener(new View.OnClickListener() { //tworzymy wydarzenie ktore po kliknieciu w button wywola metode zapisujaca dane do bazy
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //zapisanie danych do bazy po naciśnięciu przycisku
                 saveToFirebase();
-                if (binding.imageView.getDrawable() != null)
+                if (binding.imageView.getDrawable() != null) //zapisanie zdjęcia do "storage" jeżeli zostało wybrane/zrobione
                     saveToStorage();
             }
         });
 
         binding.addNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //zeskanowanie kolejnego produktu
                 finish();
                 Intent intentMain = new Intent(AddProductActivity.this,
                         MainActivity.class);
@@ -97,7 +97,7 @@ public class AddProductActivity extends AppCompatActivity {
 
         binding.editNameBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //edycja nazwy produktu poprzez wyświetlenie okna z możliwością wpisania tekstu
                 final AlertDialog popUpWindow = new AlertDialog.Builder
                         (AddProductActivity.this).create();
                 final EditText editText = new EditText(AddProductActivity.this);
@@ -126,7 +126,7 @@ public class AddProductActivity extends AppCompatActivity {
 
         binding.editPriceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //edycja ceny poprzez wyświetlenie okna z możliwością jej wpisania
                 final AlertDialog popUpWindow = new AlertDialog.Builder
                         (AddProductActivity.this).create();
                 final EditText editText = new EditText(AddProductActivity.this);
@@ -157,7 +157,7 @@ public class AddProductActivity extends AppCompatActivity {
 
         binding.addQuantityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //zmiana ilości sztuk produktu poprzez dodanie odpowiedniej liczby do już istniejącej (lub nie) oraz wyświetlenie okna w którym można wpisać dodawaną ilość
                 final AlertDialog popUpWindow = new AlertDialog.Builder
                         (AddProductActivity.this).create();
                 final EditText editText = new EditText(AddProductActivity.this);
@@ -194,7 +194,7 @@ public class AddProductActivity extends AppCompatActivity {
 
         binding.addPhotoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //dodanie zdjęcia ze zdjęć istniejących na urządzeniu
                 Intent addPictureIntent = new Intent(Intent.ACTION_PICK);
                 addPictureIntent.setType("image/*");
                 startActivityForResult(addPictureIntent, RESULT_LOAD_IMAGE);
@@ -203,7 +203,7 @@ public class AddProductActivity extends AppCompatActivity {
 
         binding.takePhotoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //uruchomienie aparatu w celu zrobienia zdjęcia produktu
                 isCameraUsed = true;
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -213,9 +213,9 @@ public class AddProductActivity extends AppCompatActivity {
         });
     }
 
-    private void saveToFirebase() {
+    private void saveToFirebase() { //przypisanie informacji zebranych z poszczególnych TextView do instancji klasy ProductClass a następnie zapisanie obiektu do bazy danych w chmurze
         if (binding.nameTextView.getText() != "" && binding.priceTextView.getText() != ""
-                && binding.quantityTextView.getText() != "") {
+                && binding.quantityTextView.getText() != "") { //sprawdzenie czy wszystkie wymagane pola zostały wypełnione
             ProductClass productObject = new ProductClass(binding.barcodeTextView.getText()
                     .toString(), binding.nameTextView.getText().toString(),
                     binding.priceTextView.getText().toString(),
@@ -235,7 +235,7 @@ public class AddProductActivity extends AppCompatActivity {
         }
     }
 
-    private void saveToStorage() {
+    private void saveToStorage() { //konwersja zdjęcia oraz zapisanie go do "storage"
         ImageView imageToSend = binding.imageView;
         imageToSend.setDrawingCacheEnabled(true);
         imageToSend.buildDrawingCache();
@@ -253,7 +253,7 @@ public class AddProductActivity extends AppCompatActivity {
         });
     }
 
-    private void readFromFirebase() {
+    private void readFromFirebase() { //odczyt danych z bazy na podstawie kodu kreskowego oraz przypisanie ich do textView w oknie aplikacji oraz odczyt zdjęcia
         Query query = databaseProducts.orderByChild("barcode").equalTo(message);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -285,12 +285,12 @@ public class AddProductActivity extends AppCompatActivity {
         });
     }
 
-    private void showToastMessage(String message) {
+    private void showToastMessage(String message) { // wyświetlenie wiadomości w postaci toast'a
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) { //odebranie rezultatu w postaci wybranego lub zrobionego zdjęcia
         if (isCameraUsed) {
             if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
